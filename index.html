@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON — Alta Costura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">MAISON</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Colección</a>
+      <a href="#promociones">Editorial</a>
+      <button id="btn-carrito" class="btn-carrito">
+        Bolsa (<span id="badge-carrito">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Nueva Colección · Otoño 2026</p>
+      <h1>La esencia de<br/><em>lo atemporal</em></h1>
+      <p class="hero-sub">Prendas diseñadas para perdurar. Materiales nobles, cortes atemporales.</p>
+      <a href="#catalogo" class="btn-primary">Explorar colección</a>
+    </div>
+    <div id="stats" class="stats"></div>
+  </section>
+
+  <main>
+    <section id="catalogo">
+      <div class="section-header">
+        <p class="eyebrow">Catálogo</p>
+        <h2>Piezas seleccionadas</h2>
+      </div>
+
+      <div class="filtros">
+        <input type="text" id="filtro-buscar" placeholder="Buscar..." />
+        <select id="filtro-categoria">
+          <option value="">Todas las categorías</option>
+        </select>
+        <input type="number" id="filtro-precio" placeholder="Precio máximo" min="0" />
+        <button id="btn-filtrar">Filtrar</button>
+      </div>
+
+      <div id="lista-productos" class="grid"></div>
+    </section>
+
+    <section id="promociones">
+      <div class="section-header">
+        <p class="eyebrow">Editorial</p>
+        <h2>Promociones exclusivas</h2>
+      </div>
+      <div id="lista-promociones" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- MODAL DETALLE -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="cerrar-modal" class="cerrar">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- MODAL CARRITO -->
+  <div id="modal-carrito" class="modal hidden">
+    <div class="modal-content modal-carrito-content">
+      <button id="cerrar-carrito" class="cerrar">&times;</button>
+      <h2 class="modal-title">Bolsa de compra</h2>
+      <div id="carrito-body"></div>
+      <div class="carrito-footer">
+        <div class="total-row">
+          <span>Total</span>
+          <span>S/ <span id="carrito-total">0.00</span></span>
+        </div>
+        <button id="btn-checkout" class="btn-primary full">Continuar con la compra</button>
+        <button id="btn-vaciar" class="btn-link">Vaciar bolsa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CHECKOUT -->
+  <div id="modal-checkout" class="modal hidden">
+    <div class="modal-content">
+      <button id="cerrar-checkout" class="cerrar">&times;</button>
+      <h2 class="modal-title">Finalizar compra</h2>
+      <p class="modal-sub">Completa tus datos para procesar el pedido</p>
+      <form id="form-checkout">
+        <div class="form-row">
+          <label>Nombre completo *</label>
+          <input type="text" id="co-nombre" required />
+        </div>
+        <div class="form-row">
+          <label>Correo electrónico *</label>
+          <input type="email" id="co-correo" required />
+        </div>
+        <div class="form-row">
+          <label>Teléfono *</label>
+          <input type="tel" id="co-telefono" required />
+        </div>
+        <div class="form-row">
+          <label>Dirección de envío *</label>
+          <input type="text" id="co-direccion" required />
+        </div>
+        <div class="form-row">
+          <label>Método de pago</label>
+          <select id="co-pago">
+            <option>Tarjeta de crédito / débito</option>
+            <option>Transferencia bancaria</option>
+            <option>Pago contra entrega</option>
+          </select>
+        </div>
+        <div class="resumen-checkout">
+          <span>Total a pagar</span>
+          <strong>S/ <span id="checkout-total">0.00</span></strong>
+        </div>
+        <button type="submit" class="btn-primary full">Confirmar pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">MAISON</div>
+    <p>© 2026 Maison · Alta Costura · Hecho en Perú</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

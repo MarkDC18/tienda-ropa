@@ -1,0 +1,626 @@
+/* ---------- RESET ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #111;
+  --card: #141414;
+  --border: #2a2a2a;
+  --border-hover: #4a4a4a;
+  --text: #f5f5f5;
+  --text-dim: #8a8a8a;
+  --gold: #c9a961;
+  --gold-dark: #a88947;
+  --radius: 2px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  letter-spacing: .3px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 3rem;
+  background: rgba(10, 10, 10, .9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 8px;
+  color: var(--text);
+}
+
+nav { display: flex; align-items: center; gap: 2rem; }
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  transition: color .3s;
+}
+nav a:hover { color: var(--gold); }
+
+.btn-carrito {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: .6rem 1.2rem;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .3s;
+}
+.btn-carrito:hover { border-color: var(--gold); color: var(--gold); }
+#badge-carrito { color: var(--gold); margin-left: .3rem; }
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 8rem 3rem 6rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+}
+.hero-content { max-width: 800px; margin: 0 auto; }
+.eyebrow {
+  font-size: .7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  color: var(--text-dim);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--text);
+  cursor: pointer;
+  transition: all .4s;
+}
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+}
+.btn-primary.full { width: 100%; text-align: center; }
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: .75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: .5rem 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color .3s;
+}
+.btn-link:hover { color: var(--gold); }
+
+/* ---------- STATS ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 5rem auto 0;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+.stat { text-align: center; }
+.stat span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat p {
+  color: var(--text-dim);
+  font-size: .7rem;
+  margin-top: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ---------- MAIN ---------- */
+main { max-width: 1400px; margin: auto; padding: 0 3rem; }
+section { padding: 6rem 0; }
+section + section { border-top: 1px solid var(--border); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-header .eyebrow { margin-bottom: 1rem; }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+/* ---------- FILTROS ---------- */
+.filtros {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+.filtros input, .filtros select {
+  flex: 1;
+  min-width: 180px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: .85rem;
+  font-family: inherit;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: border-color .3s;
+}
+.filtros input:focus, .filtros select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.filtros input::placeholder { color: var(--text-dim); }
+.filtros select option { background: var(--bg-2); }
+.filtros button {
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: inherit;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s;
+}
+.filtros button:hover { background: var(--gold); color: var(--bg); }
+
+/* ---------- GRID ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem 2rem;
+}
+
+/* ---------- CARDS PRODUCTO ---------- */
+.card {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  transition: transform .4s ease;
+}
+.card:hover { transform: translateY(-4px); }
+
+.card .img-wrap {
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  background: var(--card);
+  aspect-ratio: 3 / 4;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s ease, opacity .4s;
+  opacity: .92;
+}
+.card:hover img { transform: scale(1.05); opacity: 1; }
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: .4rem;
+  letter-spacing: .5px;
+}
+.card .marca {
+  font-size: .65rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: .5rem;
+}
+.card .talla-color {
+  font-size: .75rem;
+  color: var(--text-dim);
+  margin-bottom: .8rem;
+  letter-spacing: 1px;
+}
+.card .precio {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.card .acciones {
+  display: flex;
+  gap: .5rem;
+  margin-top: auto;
+}
+.card .acciones button {
+  flex: 1;
+  padding: .8rem .5rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s;
+}
+.card .acciones .btn-detalle:hover { border-color: var(--text); }
+.card .acciones .btn-agregar {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.card .acciones .btn-agregar:hover { background: var(--gold); color: var(--bg); }
+
+/* ---------- PROMOCIONES ---------- */
+.card.promo {
+  border: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: var(--bg-2);
+}
+.card.promo h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.card.promo .descuento {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+.card.promo .vigencia {
+  font-size: .7rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+/* ---------- ESTADOS ---------- */
+.loading, .error, .empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: .9rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+.error { color: #d97a7a; }
+
+/* ---------- MODAL ---------- */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, .92);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; z-index: 1000;
+  animation: fadeIn .3s ease;
+}
+.modal.hidden { display: none; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  background: var(--bg-2);
+  max-width: 550px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 3rem;
+  position: relative;
+  border: 1px solid var(--border);
+}
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: .5rem;
+}
+.modal-sub {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: .8rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+.modal-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: .5rem;
+}
+.modal-content .badge {
+  display: inline-block;
+  color: var(--gold);
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.modal-content p { color: var(--text-dim); font-size: .9rem; margin: .5rem 0; }
+.modal-content .desc {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  line-height: 1.8;
+}
+.modal-content .btn-primary { margin-top: 1.5rem; }
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color .3s;
+}
+.cerrar:hover { color: var(--gold); }
+
+/* ---------- CARRITO ---------- */
+.modal-carrito-content { max-width: 480px; }
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.carrito-item img {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  margin: 0;
+}
+.carrito-item .info { flex: 1; }
+.carrito-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: .3rem;
+}
+.carrito-item p {
+  color: var(--text-dim);
+  font-size: .8rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.btn-quitar {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: all .3s;
+}
+.btn-quitar:hover { border-color: #d97a7a; color: #d97a7a; }
+
+.carrito-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+.total-row span:last-child {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+/* ---------- FORM CHECKOUT ---------- */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1.2rem;
+}
+.form-row label {
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.form-row input, .form-row select {
+  padding: .9rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: border-color .3s;
+}
+.form-row input:focus, .form-row select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-row select option { background: var(--bg-2); }
+
+.resumen-checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: .8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.resumen-checkout strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+footer p {
+  color: var(--text-dim);
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  header { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; }
+  nav { gap: 1rem; }
+  nav a { font-size: .65rem; letter-spacing: 1px; }
+  .hero { padding: 4rem 1.5rem; }
+  main { padding: 0 1.5rem; }
+  section { padding: 4rem 0; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem 1rem; }
+  .filtros { flex-direction: column; }
+  .filtros input, .filtros select, .filtros button { width: 100%; }
+  .modal-content { padding: 2rem 1.5rem; }
+  .modal-content img { height: 250px; }
+}
+
+/* ---------- CANTIDAD EN CARRITO ---------- */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .6rem;
+}
+.cantidad-control .btn-cantidad {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s;
+}
+.cantidad-control .btn-cantidad:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.cantidad-valor {
+  min-width: 28px;
+  text-align: center;
+  font-size: .9rem;
+  letter-spacing: 1px;
+}
+
+.item-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .6rem;
+}
+.item-total > span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gold);
+}
